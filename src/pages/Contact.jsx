@@ -32,8 +32,8 @@ const Contact = () => {
   };
 
   return (
-    <div className='contact m-8 font-semibold  md:flex items-center justify-between gap-8'>
-      <div className="flex-col basis-5/12">
+    <div className='contact m-8 font-semibold  md:flex items-center justify-between gap-8 mt-20 pb-5 '>
+      <div className="flex-col basis-5/12 ">
         <h2 className='gcol my-3 text-3xl flex '>Send us a Message </h2>
         <p>Feel free to reach out through contact form or find our contact information below. Your feedback, questions, and suggestions are important to us .</p>
         <ul>
@@ -43,7 +43,7 @@ const Contact = () => {
           <li className='flex m-8 gap-3 '><img className='w-8' src={location_icon} alt="" />National Insitute of Technology, <br />Hamirpur</li>
         </ul>
       </div>
-      <div className="flex-col justify-center items-center basis-5/12">
+      <div className="flex-col justify-center items-center basis-5/12 ">
         <form onSubmit={onSubmit} >
           <label className='mt-2'>Your name</label>
           <input className='block mr-3 bg-zinc-800 rounded-md p-2 my-3 text-white w-72' type="text" name='name' placeholder='Enter your name' required />

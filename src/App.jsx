@@ -5,10 +5,11 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Men from './pages/Men'
 import Women from './pages/Women'
-import Kids from './pages/Kids'
+import CategoryPage from './pages/CategoryPage'
+import ProductDetail from './pages/ProductDetail'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
-
+import Cart from './pages/Cart'
 
 const router = createBrowserRouter([
   {
@@ -28,12 +29,20 @@ const router = createBrowserRouter([
     element: <><Navbar /><Women /><Footer /></>
   },
   {
-    path: "/kids",
-    element: <><Navbar /><Kids /><Footer /></>
+    path: "/product/:section/:category/:productId",
+    element: <><Navbar /><ProductDetail  /><Footer /></>
+  },
+  {
+    path: "/:section/:categoryName",
+    element: <><Navbar /><CategoryPage /><Footer /></>
   },
   {
     path: "/contact",
     element: <><Navbar /><Contact /><Footer /></>
+  },
+  { 
+    path: "/cart",
+    element: <><Navbar /><Cart /><Footer /></> 
   }
 
 ])
