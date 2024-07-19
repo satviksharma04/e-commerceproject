@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { NavLink } from 'react-router-dom'
 import title_logo from '../assets/title-logo.png'
 import bottom_logo from '../assets/logo.png'
 import cart_icon from '../assets/shopping-cart.png'
 import menu_icon from '../assets/menu.png'
+import { CartContext } from '../context/CartContext';
 
 const Navbar = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { itemCount } = useContext(CartContext)
 
   const togglemenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,8 +28,11 @@ const Navbar = () => {
         <NavLink to="/contact"  className="px-4 cursor-pointer hover:text-yellow-400 hover:underline" >Contact</NavLink>
       </nav>
       <div className='flex gap-6 items-center mx-4'>
-        <div className="cart w-10 ">
-          <NavLink to='/cart'><img src={cart_icon} alt="" /></NavLink>
+        <div className="cart w-10 pb-6">
+          <NavLink to='/cart'>
+          <img src={cart_icon} alt="" />
+          <div className='flex -mt-12 ml-8 text-sm justify-center items-center w-5 h-5 text-white bg-red-500 rounded-full'>{itemCount}</div>
+          </NavLink>
         </div>
         <div className="menu w-8 block md:hidden cursor-pointer" onClick={togglemenu}>
           <img src={menu_icon} alt="" />

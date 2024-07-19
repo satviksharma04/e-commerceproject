@@ -15,8 +15,8 @@ const Cart = () => {
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
-        <div className='min-h-screen mx-auto p-4 mt-16 bg-gray-300 shadow-lg rounded-md'>
-            <h2 className='text-3xl font-semibold text-center'>Shopping Cart</h2>
+        <div className='min-h-screen p-4 mt-16 bg-gray-300 shadow-lg rounded-md'>
+            <h2 className='text-3xl font-semibold text-center mb-4'>Shopping Cart</h2>
             {cart.length === 0 ? (
                 <div className='flex items-center justify-center'>
                     <div className="text-center w-64 bg-gray-200 flex-col justify-center font-semibold text-lg mt-32 rounded-md shadow-lg">
@@ -30,8 +30,8 @@ const Cart = () => {
             ) : (
                 <div className='grid gap-6 mt-6'>
                     {cart.map((item) => (
-                        <div key={`${item.id}-${item.size}`} className='bg-white p-4 rounded-md shadow-md flex justify-between items-center'>
-                            <div className="flex items-center">
+                        <div key={`${item.id}-${item.size}`} className='bg-white p-4 rounded-md shadow-md flex flex-col md:flex-row justify-between items-center'>
+                            <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
                                 <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-md" />
                                 <div className="ml-4">
                                     <h2 className="font-bold text-xl">{item.name}</h2>
@@ -40,7 +40,7 @@ const Cart = () => {
                                     <p className="text-sm">Total: &#8377;{item.price * item.quantity}</p>
                                 </div>
                             </div>
-                            <div className="flex flex-col md:flex-row items-center gap-4">
+                            <div className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0 w-full md:w-auto">
                                 <div className="flex items-center">
                                     <button
                                         onClick={() => handleQuantityChange(item.id, item.size, item.quantity - 1)}
@@ -63,14 +63,14 @@ const Cart = () => {
                         <h2 className='text-lg font-normal'>Shipping Fee : Free</h2>
                         <h2 className='text-lg font-semibold'>Total Amount : &#8377;{totalAmount}</h2>
                     </div>
-                    <div className='flex justify-between mt-3'>
+                    <div className='flex flex-col md:flex-row gap-2 justify-between mt-3'>
                         <button
                             onClick={clearCart}
-                            className="w-48 bg-red-700 text-white px-4 rounded-lg text-lg font-semibold"
+                            className="w-full md:w-48 bg-red-700 text-white px-4 py-2 rounded-lg text-lg font-semibold"
                         >
                             Clear Cart
                         </button>
-                        <button className='w-48 px-2 h-16 bg-blue-500 text-white rounded-lg font-semibold text-lg'>
+                        <button className='w-full md:w-48 px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold text-lg'>
                             <Link to="/">Back To HomePage</Link>
                         </button>
                     </div>
@@ -81,3 +81,4 @@ const Cart = () => {
 };
 
 export default Cart;
+
