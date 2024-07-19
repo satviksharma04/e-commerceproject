@@ -11,6 +11,9 @@ const Cart = () => {
         }
     };
 
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
     return (
         <div className='min-h-screen mx-auto p-4 mt-16 bg-gray-300 shadow-lg rounded-md'>
             <h2 className='text-3xl font-semibold text-center'>Shopping Cart</h2>
@@ -37,8 +40,7 @@ const Cart = () => {
                                     <p className="text-sm">Total: &#8377;{item.price * item.quantity}</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <button onClick={() => removeFromCart(item.id, item.size)} className="text-red-600 font-bold">Remove</button>
+                            <div className="flex flex-col md:flex-row items-center gap-4">
                                 <div className="flex items-center">
                                     <button
                                         onClick={() => handleQuantityChange(item.id, item.size, item.quantity - 1)}
@@ -50,17 +52,25 @@ const Cart = () => {
                                         className="border border-gray-800 bg-gray-100 w-8 font-bold text-2xl"
                                     >+</button>
                                 </div>
+                                <button onClick={() => removeFromCart(item.id, item.size)} className="text-red-600 font-bold">Remove</button>
                             </div>
                         </div>
                     ))}
-                    <div className='flex justify-between'>
+                    <div className='bg-slate-100 p-4 rounded-md shadow-md'>
+                        <h1 className='text-2xl font-bold'>Cart Totals</h1>
+                        <h2 className='text-lg font-normal'> Total Items : {totalItems}</h2>
+                        <h2 className='text-lg font-normal'> Amount : &#8377;{totalAmount}</h2>
+                        <h2 className='text-lg font-normal'>Shipping Fee : Free</h2>
+                        <h2 className='text-lg font-semibold'>Total Amount : &#8377;{totalAmount}</h2>
+                    </div>
+                    <div className='flex justify-between mt-3'>
                         <button
                             onClick={clearCart}
-                            className="mt-6 bg-red-700 text-white px-6 py-3 rounded-lg"
+                            className="w-48 bg-red-700 text-white px-4 rounded-lg text-lg font-semibold"
                         >
                             Clear Cart
                         </button>
-                        <button className='px-4 bg-blue-500 text-white rounded-lg'>
+                        <button className='w-48 px-2 h-16 bg-blue-500 text-white rounded-lg font-semibold text-lg'>
                             <Link to="/">Back To HomePage</Link>
                         </button>
                     </div>
