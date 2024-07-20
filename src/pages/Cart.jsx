@@ -70,8 +70,8 @@ const Cart = () => {
                         >
                             Clear Cart
                         </button>
-                        <button className='w-full md:w-48 px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold text-lg'>
-                            <Link to="/">Back To HomePage</Link>
+                        <button onClick={clearCart} className='w-full md:w-48 px-4 py-2 bg-green-700 text-white rounded-lg font-semibold text-lg'>
+                            <Link to="/checkout">Proceed to Buy</Link>
                         </button>
                     </div>
                 </div>
