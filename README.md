@@ -1,8 +1,34 @@
-# React + Vite
+# 🛍️ E-Commerce Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An elegant and responsive E-Commerce web application built using **React.js**. This platform provides a clean UI/UX with intuitive category-based navigation for Men, Women, and Kids sections.
 
-Currently, two official plugins are available:
+> 🔗 **Live Demo**: [https://ecommercewebsite092.netlify.app](https://ecommercewebsite092.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 🚀 Features
+
+- 📦 **Category-Based Navigation**  
+  Browse through **Men**, **Women**, and **Kids** sections with category grids.
+
+- 🖼️ **Category Display Page**  
+  Each category displays a grid of products with:
+  - Product image  
+  - Name  
+  - Short description  
+  - Price
+
+- 🔍 **Smooth Routing**  
+  Navigate easily between sections and categories with `react-router-dom`.
+
+- 📱 **Responsive Design**  
+  Mobile-first responsive UI using **Tailwind CSS**
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js, Tailwind CSS, JavaScript  
+- **Routing**: React Router DOM  
+
+---
